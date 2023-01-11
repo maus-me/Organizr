@@ -502,7 +502,7 @@ trait AuthFunctions
 						$response = Requests::post($connectURL, $headers, $data);
 						if ($response->success) {
 							$json = json_decode($response->body, true);
-							if (is_array($json) && isset($json['AccessToken']) && isset($json['User']) && $json['User']['Name'] == $connectUserName) {
+							if (is_array($json) && isset($json['AccessToken']) && isset($json['User']) && $json['User']['Email'] == $connectUserName) {
 								return array(
 									'email' => $json['User']['Email'],
 									//'image' => $json['User']['ImageUrl'],
